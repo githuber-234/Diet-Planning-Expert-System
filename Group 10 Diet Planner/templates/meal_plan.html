@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Meal Plan</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Your Weekly Meal Plan</h1>
+    {% if plan.error %}
+      <div class="error-message">
+        <p>{{ plan.error }}</p>
+      </div>
+    {% else %}
+      {% for day in plan.days %}
+        <div class="day-plan">
+          <h3 class="day-title">Day {{ loop.index }} ({{ day.total_cals }} kcal)</h3>
+          <ul class="meal-list">
+            {% for meal in day.meals %}
+              <li class="meal-item">{{ meal.name }} - {{ meal.calories }} cal</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='astyle.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Diet Planner</h1>
+    <form method="POST" class="diet-form">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        <label for="age">{{ form.age.label }}</label>
+        {{ form.age(class="input-field") }}
+      </div>
+      <div class="form-group">
+        <label for="gender">{{ form.gender.label }}</label>
+        {{ form.gender(class="input-field") }}
+      </div>
+      <div class="form-group">
+        <label for="goal">{{ form.goal.label }}</label>
+        {{ form.goal(class="input-field") }}
+      </div>
+      <div class="form-group">
+        <label>{{ form.vegan.label }}</label>
+        {{ form.vegan() }}
+      </div>
+      <div class="form-group">
+        <label>{{ form.diabetic.label }}</label>
+        {{ form.diabetic() }}
+      </div>
+      <div class="form-group">
+        <label for="calories">{{ form.calories.label }}</label>
+        {{ form.calories(class="input-field") }}
+      </div>
+      <div class="form-group">
+        <button type="submit" class="submit-btn">Generate Plan</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
